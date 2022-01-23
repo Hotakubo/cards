@@ -2,7 +2,7 @@
   "name": "stock",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 8080",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -10,7 +10,8 @@
   "dependencies": {
     "next": "12.0.8",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "swr": "1.1.2"
   },
   "devDependencies": {
     "@types/node": "17.0.8",
