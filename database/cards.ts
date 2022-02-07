@@ -1,6 +1,6 @@
 import * as base from './base'
 
-export type TypeCards = {
+export type TypeCard = {
   header: string;
   anchor: string;
   label: string;

@@ -1,16 +1,26 @@
-import { useState } from 'react';
 import useSWR from 'swr';
-import type { TypeCards } from '@/database/cards'
+import type { TypeCard } from '@/database/cards'
 
-export default function Cards() {
-  const [cards, setCards] = useState<TypeCards[]>([]);
-  const { data } = useSWR('/api/cards/read', async (url: string): Promise<TypeCards[]> => {
+const cardsRead = (label: string) => {
+  const { data, error } = useSWR(`/api/cardsread?label=${label}`, async (url: string): Promise<TypeCard[]> => {
     const response = await fetch(url);
 
     return response.json();
   })
 
+  return { cards: data, error }
+}
+
+export default function Cards({ label }: { label: string }) {
+  if (!label) return <ul></ul>
+
+  const { cards } = cardsRead(label)
+
+  if (!cards) return <ul></ul>
+
+  const renderCards = cards.map(card => <li key={card.anchor}>{card.header}</li>)
+
   return (
-    <div></div>
+    <ul>{renderCards}</ul>
   )
 }
