@@ -18,7 +18,7 @@ export default function Cards({ label }: { label: string }) {
 
   if (!cards) return <ul></ul>
 
-  const renderCards = cards.map(card => <li key={card.anchor}>{card.header}</li>)
+  const renderCards = cards.map(card => <li key={card.id}>{card.header}</li>)
 
   return (
     <ul>{renderCards}</ul>

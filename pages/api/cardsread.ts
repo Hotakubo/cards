@@ -8,5 +8,5 @@ export default async function handler(
 ) {
   const { label } = req.query
 
-  res.status(200).json(await cards.readCards(label as string))
+  res.status(200).json(await cards.readCards(parseInt(label as string)))
 }
