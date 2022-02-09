@@ -3,7 +3,7 @@ import * as labels from '@/database/labels'
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<string[]>
+  res: NextApiResponse<number[]>
 ) {
   res.status(200).json(await labels.readLabels())
 }
