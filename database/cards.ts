@@ -2,9 +2,10 @@ import * as base from './base'
 
 export type TypeCard = {
   id: number;
+  label: number;
+  icon: number;
   header: string;
   anchor: string;
-  label: number;
   createDate: string;
   updateDate: string;
 }
