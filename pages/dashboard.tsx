@@ -19,7 +19,7 @@ const Dashboard: NextPage = () => {
   const { labels } = LabelsRead();
 
   return (
-    <div>
+    <div className='grid gap-4 grid-cols-2 w-80'>
       <Labels labels={labels ? labels : []} onLabel={label => setLabel(label)}></Labels>
       <Cards label={label}></Cards>
     </div>
