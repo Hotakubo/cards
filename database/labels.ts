@@ -1,8 +1,23 @@
+import type { TypeCard } from '@/database/cards'
 import * as base from './base'
+
+const _reduceLabels = (pureBody: Map<number, TypeLabel>, { label: label, icon: icon }: TypeCard) => {
+  return pureBody.set(label, { label: label, icon: icon })
+}
+
+const _readLabels = (cards: TypeCard[]) => {
+  const reduceLabels = cards.reduce(_reduceLabels, new Map())
+
+  return Array.from(reduceLabels.values())
+}
+
+export type TypeLabel = {
+  label: number;
+  icon: number;
+}
 
 export const readLabels = async () => {
   const cards = await base.read()
-  const labels = cards.map(body => body.label)
 
-  return Array.from(new Set(labels))
+  return _readLabels(cards)
 }
