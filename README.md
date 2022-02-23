@@ -1,6 +1,6 @@
 # STOCK
 
-Software for sorting and managing knowledge about yourself.
+Sorting and managing knowledge about yourself.
 
 ## Setup
 
