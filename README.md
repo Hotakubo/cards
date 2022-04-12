@@ -1,4 +1,4 @@
-# STOCK
+# CARDS
 
 Sorting and managing knowledge about yourself.
 
@@ -7,7 +7,7 @@ Sorting and managing knowledge about yourself.
 Specify the database file as an environment variable.
 
 ```
-DATABASE_PATH="/Users/you/stock.json"
+DATABASE_PATH="/Users/you/cards.json"
 ```
 
 ## License
