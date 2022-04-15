@@ -15,6 +15,6 @@ export default function Labels({ labels, onLabel }: Type) {
   </div>);
 
   return (
-    <div className="h-96 grid gap-2 grid-cols-3">{renderLabels}</div>
+    <div className="grid gap-2 grid-cols-4 m-4">{renderLabels}</div>
   );
 }

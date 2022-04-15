@@ -21,6 +21,6 @@ export default function Cards({ label }: { label: number }) {
   const renderCards = cards.map(card => <div key={card.id}>{card.header}</div>);
 
   return (
-    <div>{renderCards}</div>
+    <div className="m-4">{renderCards}</div>
   );
 }
