@@ -12,15 +12,15 @@ const CardsRead = (label: number) => {
 };
 
 export default function Cards({ label }: { label: number }) {
-  if (!label) return <ul></ul>;
+  if (!label) return <div></div>;
 
   const { cards } = CardsRead(label);
 
-  if (!cards) return <ul></ul>;
+  if (!cards) return <div></div>;
 
-  const renderCards = cards.map(card => <li key={card.id}>{card.header}</li>);
+  const renderCards = cards.map(card => <div key={card.id}>{card.header}</div>);
 
   return (
-    <ul>{renderCards}</ul>
+    <div>{renderCards}</div>
   );
 }
