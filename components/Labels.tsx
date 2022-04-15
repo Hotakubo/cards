@@ -6,15 +6,15 @@ type Type = {
 }
 
 export default function Labels({ labels, onLabel }: Type) {
-  const renderLabels = labels.map(body => <li
+  const renderLabels = labels.map(body => <div
     key={body.label}
     onClick={() => onLabel(body.label)}
     className="cursor-pointer"
   >
     {body.icon}
-  </li>);
+  </div>);
 
   return (
-    <ul className="w-8">{renderLabels}</ul>
+    <div className="w-8">{renderLabels}</div>
   );
 }
