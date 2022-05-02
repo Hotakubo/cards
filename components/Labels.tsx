@@ -1,4 +1,5 @@
 import type { TypeLabel } from '@/database/labels';
+import Icons from '@/components/Icons'
 
 type Type = {
   labels: TypeLabel[];
@@ -11,7 +12,7 @@ export default function Labels({ labels, onLabel }: Type) {
     onClick={() => onLabel(body.label)}
     className="cursor-pointer"
   >
-    {body.icon}
+    <Icons label={body.label}></Icons>
   </div>);
 
   return (
