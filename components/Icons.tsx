@@ -1,18 +1,18 @@
 import React from 'react';
 import { MdAccountBox } from "react-icons/md";
 
-const read = (label: number) => {
-  switch (label) {
+const read = (icon: number) => {
+  switch (icon) {
     case 23:
       return <MdAccountBox></MdAccountBox>
 
     default:
-      return <div>{label}</div>
+      return <div>{icon}</div>
   }
 }
 
-export default function Labels({ label }: { label: number }) {
+export default function Labels({ icon }: { icon: number }) {
   return (
-    <>{read(label)}</>
+    <>{read(icon)}</>
   );
 }

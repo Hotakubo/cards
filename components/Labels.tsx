@@ -12,7 +12,7 @@ export default function Labels({ labels, onLabel }: Type) {
     onClick={() => onLabel(body.label)}
     className="cursor-pointer"
   >
-    <Icons label={body.label}></Icons>
+    <Icons icon={body.icon}></Icons>
   </div>);
 
   return (
