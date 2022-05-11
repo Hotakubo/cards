@@ -4,7 +4,7 @@ import { MdAccountBox } from "react-icons/md";
 const read = (icon: number) => {
   switch (icon) {
     case 23:
-      return <MdAccountBox></MdAccountBox>
+      return <MdAccountBox size={30}></MdAccountBox>
 
     default:
       return <div>{icon}</div>
