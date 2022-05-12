@@ -14,39 +14,41 @@ import {
 } from "react-icons/md";
 
 const read = (icon: number) => {
+  const size = 30
+
   switch (icon) {
     case 20:
-      return <MdOutlineBuild size={30}></MdOutlineBuild>;
+      return <MdOutlineBuild size={size}></MdOutlineBuild>;
 
     case 23:
-      return <MdAccountBox size={30}></MdAccountBox>;
+      return <MdAccountBox size={size}></MdAccountBox>;
 
     case 26:
-      return <MdCamera size={30}></MdCamera>;
+      return <MdCamera size={size}></MdCamera>;
 
     case 27:
-      return <MdStore size={30}></MdStore>;
+      return <MdStore size={size}></MdStore>;
 
     case 39:
-      return <MdOutlineLanguage size={30}></MdOutlineLanguage>;
+      return <MdOutlineLanguage size={size}></MdOutlineLanguage>;
 
     case 44:
-      return <MdOutlineBookmark size={30}></MdOutlineBookmark>;
+      return <MdOutlineBookmark size={size}></MdOutlineBookmark>;
 
     case 47:
-      return <MdPerson size={30}></MdPerson>;
+      return <MdPerson size={size}></MdPerson>;
 
     case 64:
-      return <MdError size={30}></MdError>;
+      return <MdError size={size}></MdError>;
 
     case 74:
-      return <MdShoppingCart size={30}></MdShoppingCart>;
+      return <MdShoppingCart size={size}></MdShoppingCart>;
 
     case 81:
-      return <MdOutlineMenuBook size={30}></MdOutlineMenuBook>;
+      return <MdOutlineMenuBook size={size}></MdOutlineMenuBook>;
 
     case 88:
-      return <MdPhoto size={30}></MdPhoto>;
+      return <MdPhoto size={size}></MdPhoto>;
 
     default:
       return <div>{icon}</div>;
