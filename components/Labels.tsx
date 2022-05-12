@@ -1,5 +1,5 @@
 import type { TypeLabel } from '@/database/labels';
-import Icons from '@/components/Icons'
+import Icons from '@/components/Icons';
 
 type Type = {
   labels: TypeLabel[];
