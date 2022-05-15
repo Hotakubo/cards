@@ -2,7 +2,7 @@ import useSWR from 'swr';
 import type { TypeCard } from '@/database/cards';
 
 const CardsRead = (label: number) => {
-  const { data, error } = useSWR(`/api/cardsread?label=${label}`, async (url: string): Promise<TypeCard[]> => {
+  const { data, error } = useSWR(`/api/cards?label=${label}`, async (url: string): Promise<TypeCard[]> => {
     const response = await fetch(url);
 
     return response.json();
