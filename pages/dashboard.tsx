@@ -6,7 +6,7 @@ import Labels from '@/components/Labels';
 import Cards from '@/components/Cards';
 
 const LabelsRead = () => {
-  const { data, error } = useSWR('/api/labelsread', async (url: string): Promise<TypeLabel[]> => {
+  const { data, error } = useSWR('/api/labels', async (url: string): Promise<TypeLabel[]> => {
     const response = await fetch(url);
 
     return response.json();
