@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import type { TypeCard } from '@/database/cards';
-import { URLPath } from '@/shared/routes';
+import * as sharedRoutes from '@/shared/routes';
 import * as cards from '@/database/cards';
 
 const routes = [
@@ -19,7 +19,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const route = routes.find(route => req.method === route.method && URLPath(req.url) === route.url)
+  const route = sharedRoutes.route(req, res, routes)
 
   if (route) {
     await route.handler(req, res);

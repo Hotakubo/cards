@@ -1,3 +1,11 @@
+import type { NextApiRequest, NextApiResponse } from 'next';
+
+type TypeRoute = {
+  method: string;
+  url: string;
+  handler: (req: NextApiRequest, res: NextApiResponse) => Promise<void>;
+}
+
 const ORIGIN = 'http://localhost'
 
 export const URLPath = (url: string | undefined) => {
@@ -6,4 +14,8 @@ export const URLPath = (url: string | undefined) => {
   const { pathname } = new URL(ORIGIN.concat(url))
 
   return pathname
+}
+
+export const route = (req: NextApiRequest, res: NextApiResponse, routes: TypeRoute[]) => {
+  return routes.find(route => req.method === route.method && URLPath(req.url) === route.url)
 }
