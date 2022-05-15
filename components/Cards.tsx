@@ -18,7 +18,18 @@ export default function Cards({ label }: { label: number }) {
 
   if (!cards) return <div></div>;
 
-  const renderCards = cards.map(card => <div key={card.id}><a href={card.anchor} target="_blank" rel="noreferrer">{card.header}</a></div>);
+  const renderCards = cards.map(card =>
+    <div
+      className="w-96"
+      key={card.id}
+    >
+      <a
+        href={card.anchor}
+        target="_blank"
+        rel="noreferrer"
+      >{card.header}</a>
+    </div>
+  );
 
   return (
     <div className="m-4">{renderCards}</div>
