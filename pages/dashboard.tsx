@@ -21,7 +21,11 @@ const Dashboard: NextPage = () => {
 
   return (
     <div className="flex">
-      <Labels labels={labels ? labels : []} onLabel={label => setLabel(label)}></Labels>
+      <Labels
+        labels={labels ? labels : []}
+        label={label}
+        onLabel={label => setLabel(label)}
+      ></Labels>
       <Cards label={label}></Cards>
     </div>
   );
