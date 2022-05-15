@@ -1,14 +1,14 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import type { TypeLabel } from '@/database/labels';
 import shared from '@/shared';
-import * as labels from '@/database/labels';
+import database from '@/database';
 
 const routes = [
   {
     method: 'GET',
     url: '/api/labels',
     handler: async (req: NextApiRequest, res: NextApiResponse<TypeLabel[]>) => {
-      res.status(200).json(await labels.readLabels());
+      res.status(200).json(await database.labels.readLabels());
     }
   }
 ]
