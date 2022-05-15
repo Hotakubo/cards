@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import type { TypeLabel } from '@/database/labels';
+import { URLPath } from '@/shared/routes';
 import * as labels from '@/database/labels';
 
 const routes = [
@@ -16,7 +17,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const route = routes.find(route => req.method === route.method && req.url === route.url)
+  const route = routes.find(route => req.method === route.method && URLPath(req.url) === route.url)
 
   if (route) {
     await route.handler(req, res);
