@@ -14,7 +14,7 @@ import {
 } from "react-icons/md";
 
 const read = (icon: number) => {
-  const size = 30
+  const size = 30;
 
   switch (icon) {
     case 20:

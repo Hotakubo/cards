@@ -32,7 +32,7 @@ export default function Labels({ labels, label, onLabel }: Type) {
         <Icon icon={body.icon}></Icon>
       </div>
     );
-});
+  });
 
   return (
     <div className="grid gap-2 grid-cols-4 auto-rows-min m-4">{renderLabels}</div>
