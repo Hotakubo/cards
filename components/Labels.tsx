@@ -18,7 +18,7 @@ const LabelsRead = () => {
   return { labels: data, error };
 };
 
-export default function Labels({ enabledLabel, onClick }: Type) {
+const Labels = ({ enabledLabel, onClick }: Type) => {
   const { labels } = LabelsRead();
 
   if (!labels) return <div></div>
@@ -35,3 +35,5 @@ export default function Labels({ enabledLabel, onClick }: Type) {
     </div>
   );
 }
+
+export default Labels

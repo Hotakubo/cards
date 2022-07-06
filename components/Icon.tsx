@@ -55,7 +55,7 @@ const read = (icon: number) => {
   }
 };
 
-export default function Icon({ icon, enabled = false }: { icon: number, enabled: boolean }) {
+const Icon = ({ icon, enabled = false }: { icon: number, enabled: boolean }) => {
   if (enabled) {
     return (
       <div className="bg-blue-500">
@@ -68,3 +68,5 @@ export default function Icon({ icon, enabled = false }: { icon: number, enabled:
     <>{read(icon)}</>
   );
 }
+
+export default Icon

@@ -1,13 +1,13 @@
 import Icon from '@/components/Icon';
 
-type TypeLabel = {
+type Type = {
   label: number;
   icon: number;
   enabled: boolean;
   onClick: (label: number) => void;
 }
 
-export default function Label({ label, icon, enabled = false, onClick }: TypeLabel) {
+const Label = ({ label, icon, enabled = false, onClick }: Type) => {
   return (
     <div
       key={label}
@@ -18,3 +18,5 @@ export default function Label({ label, icon, enabled = false, onClick }: TypeLab
     </div>
   );
 }
+
+export default Label

@@ -11,7 +11,7 @@ const CardsRead = (label: number) => {
   return { cards: data, error };
 };
 
-export default function Cards({ label }: { label: number }) {
+const Cards = ({ label }: { label: number }) => {
   const { cards } = CardsRead(label);
 
   if (!cards) return <div></div>;
@@ -33,3 +33,5 @@ export default function Cards({ label }: { label: number }) {
     <div className="m-4">{renderCards}</div>
   );
 }
+
+export default Cards
