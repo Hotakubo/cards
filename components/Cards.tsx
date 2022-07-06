@@ -12,8 +12,6 @@ const CardsRead = (label: number) => {
 };
 
 export default function Cards({ label }: { label: number }) {
-  if (!label) return <div></div>;
-
   const { cards } = CardsRead(label);
 
   if (!cards) return <div></div>;
