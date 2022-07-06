@@ -15,10 +15,10 @@ const routes = [
   }
 ]
 
-export default async function handler(
+const handler = async (
   req: NextApiRequest,
   res: NextApiResponse
-) {
+) => {
   const route = shared.routes.route(req, res, routes)
 
   if (route) {
@@ -27,3 +27,5 @@ export default async function handler(
     res.status(404);
   }
 }
+
+export default handler
