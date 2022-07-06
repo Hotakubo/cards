@@ -16,6 +16,6 @@ const URLPath = (url: string | undefined) => {
   return pathname
 }
 
-export const route = (req: NextApiRequest, res: NextApiResponse, routes: TypeRoute[]) => {
+export const route = (req: NextApiRequest, _res: NextApiResponse, routes: TypeRoute[]) => {
   return routes.find(route => req.method === route.method && URLPath(req.url) === route.url)
 }
