@@ -17,6 +17,6 @@ const Label = ({ label, icon, enabled = false, onClick }: Type) => {
       <Icon icon={icon} enabled={enabled}></Icon>
     </div>
   );
-}
+};
 
-export default Label
+export default Label;

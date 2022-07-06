@@ -21,7 +21,7 @@ const LabelsRead = () => {
 const Labels = ({ enabledLabel, onClick }: Type) => {
   const { labels } = LabelsRead();
 
-  if (!labels) return <div></div>
+  if (!labels) return <div></div>;
 
   return (
     <div className="grid gap-2 grid-cols-4 auto-rows-min m-4">
@@ -34,6 +34,6 @@ const Labels = ({ enabledLabel, onClick }: Type) => {
       ></Label>)}
     </div>
   );
-}
+};
 
-export default Labels
+export default Labels;

@@ -61,12 +61,12 @@ const Icon = ({ icon, enabled = false }: { icon: number, enabled: boolean }) => 
       <div className="bg-blue-500">
         {read(icon)}
       </div>
-    )
+    );
   }
 
   return (
     <>{read(icon)}</>
   );
-}
+};
 
-export default Icon
+export default Icon;

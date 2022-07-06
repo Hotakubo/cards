@@ -13,19 +13,19 @@ const routes = [
       res.status(200).json(await database.cards.readCards(parseInt(label as string)));
     }
   }
-]
+];
 
 const handler = async (
   req: NextApiRequest,
   res: NextApiResponse
 ) => {
-  const route = shared.routes.route(req, res, routes)
+  const route = shared.routes.route(req, res, routes);
 
   if (route) {
     await route.handler(req, res);
   } else {
     res.status(404);
   }
-}
+};
 
-export default handler
+export default handler;

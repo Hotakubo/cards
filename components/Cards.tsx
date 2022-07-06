@@ -32,6 +32,6 @@ const Cards = ({ label }: { label: number }) => {
   return (
     <div className="m-4">{renderCards}</div>
   );
-}
+};
 
-export default Cards
+export default Cards;
