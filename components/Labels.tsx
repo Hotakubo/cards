@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import useSWR from 'swr';
 import type { TypeLabel } from '@/database/labels';
 import Label from '@/components/Label';
@@ -15,18 +15,24 @@ const LabelsRead = () => {
     return response.json();
   });
 
-  return { labels: data, error };
+  return { data, error };
 };
 
 const Labels = ({ enabledLabel, onClick }: Type) => {
-  const { labels } = LabelsRead();
+  const [labels, setLabels] = useState<TypeLabel[]>([]);
+  const { data } = LabelsRead();
 
-  if (!labels) return <div></div>;
+  useEffect(() => {
+    if (data) setLabels(data)
+  })
+
+  if (!data) return <div></div>;
 
   return (
     <div className="grid gap-2 grid-cols-4 auto-rows-min m-4">
-      {labels.map(({ label, icon }) => <Label
+      {labels.map(({ label, icon }, index: number) => <Label
         key={label}
+        index={index}
         label={label}
         icon={icon}
         enabled={label === enabledLabel}
