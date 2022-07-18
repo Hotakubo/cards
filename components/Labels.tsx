@@ -26,10 +26,19 @@ const Labels = ({ enabledLabel, onClick }: Type) => {
     if (data) setLabels(data)
   })
 
-  if (!data) return <div></div>;
+  const update = (dragIndex: number, hoverIndex: number) => {
+    setLabels((prevCards: TypeLabel[]) => {
+      const addLabel = prevCards[hoverIndex]
+
+      prevCards.splice(hoverIndex, 1)
+      prevCards.splice(dragIndex, 0, addLabel)
+
+      return [ ...prevCards ]
+    })
+  }
 
   return (
-    <div className="grid gap-2 grid-cols-4 auto-rows-min m-4">
+    <div>
       {labels.map(({ label, icon }, index: number) => <Label
         key={label}
         index={index}
@@ -37,6 +46,7 @@ const Labels = ({ enabledLabel, onClick }: Type) => {
         icon={icon}
         enabled={label === enabledLabel}
         onClick={onClick}
+        update={update}
       ></Label>)}
     </div>
   );
