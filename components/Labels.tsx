@@ -38,7 +38,7 @@ const Labels = ({ enabledLabel, onClick }: Type) => {
   }
 
   return (
-    <div>
+  <div className="grid gap-2 grid-cols-4 auto-rows-min m-4">
       {labels.map(({ label, icon }, index: number) => <Label
         key={label}
         index={index}
