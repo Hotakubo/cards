@@ -1,40 +1,55 @@
+import React, { useState, useEffect } from 'react';
+import useSWR from 'swr';
 import type { TypeLabel } from '@/database/labels';
-import Icon from '@/components/Icon';
+import Label from '@/components/Label';
 
 type Type = {
-  labels: TypeLabel[];
-  label: number;
-  onLabel: (label: number) => void;
+  enabledLabel: number;
+  onClick: (label: number) => void;
 }
 
-export default function Labels({ labels, label, onLabel }: Type) {
-  const renderLabels = labels.map(body => {
-    if (label === body.label) {
-      return (
-        <div
-          key={body.label}
-          onClick={() => onLabel(body.label)}
-          className="cursor-pointer"
-        >
-          <div className="bg-blue-500">
-            <Icon icon={body.icon}></Icon>
-          </div>
-        </div>
-      );
-    }
+const LabelsRead = () => {
+  const { data, error } = useSWR('/api/labels', async (url: string): Promise<TypeLabel[]> => {
+    const response = await fetch(url);
 
-    return (
-      <div
-        key={body.label}
-        onClick={() => onLabel(body.label)}
-        className="cursor-pointer"
-      >
-        <Icon icon={body.icon}></Icon>
-      </div>
-    );
+    return response.json();
   });
 
+  return { data, error };
+};
+
+const Labels = ({ enabledLabel, onClick }: Type) => {
+  const [labels, setLabels] = useState<TypeLabel[]>([]);
+  const { data } = LabelsRead();
+
+  useEffect(() => {
+    if (data) setLabels(data)
+  })
+
+  const update = (dragIndex: number, hoverIndex: number) => {
+    setLabels((prevCards: TypeLabel[]) => {
+      const addLabel = prevCards[hoverIndex]
+
+      prevCards.splice(hoverIndex, 1)
+      prevCards.splice(dragIndex, 0, addLabel)
+
+      return [ ...prevCards ]
+    })
+  }
+
   return (
-    <div className="grid gap-2 grid-cols-4 auto-rows-min m-4">{renderLabels}</div>
+  <div className="grid gap-2 grid-cols-4 auto-rows-min m-4">
+      {labels.map(({ label, icon }, index: number) => <Label
+        key={label}
+        index={index}
+        label={label}
+        icon={icon}
+        enabled={label === enabledLabel}
+        onClick={onClick}
+        update={update}
+      ></Label>)}
+    </div>
   );
-}
+};
+
+export default Labels;

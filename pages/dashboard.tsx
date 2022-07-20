@@ -1,33 +1,20 @@
 import { useState } from 'react';
 import type { NextPage } from 'next';
-import type { TypeLabel } from '@/database/labels';
-import useSWR from 'swr';
+import { DndProvider } from 'react-dnd'
+import { HTML5Backend } from 'react-dnd-html5-backend'
 import Labels from '@/components/Labels';
 import Cards from '@/components/Cards';
 
-const LabelsRead = () => {
-  const { data, error } = useSWR('/api/labels', async (url: string): Promise<TypeLabel[]> => {
-    const response = await fetch(url);
-
-    return response.json();
-  });
-
-  return { labels: data, error };
-};
-
 const Dashboard: NextPage = () => {
-  const [label, setLabel] = useState(0);
-  const { labels } = LabelsRead();
+  const [enabledLabel, setEnabledLabel] = useState(0);
 
   return (
-    <div className="flex">
-      <Labels
-        labels={labels ? labels : []}
-        label={label}
-        onLabel={label => setLabel(label)}
-      ></Labels>
-      <Cards label={label}></Cards>
-    </div>
+    <DndProvider backend={HTML5Backend}>
+      <div className="flex">
+        <Labels enabledLabel={enabledLabel} onClick={label => setEnabledLabel(label)}></Labels>
+        <Cards label={enabledLabel}></Cards>
+      </div>
+    </DndProvider>
   );
 };
 

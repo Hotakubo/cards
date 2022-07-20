@@ -55,8 +55,18 @@ const read = (icon: number) => {
   }
 };
 
-export default function Labels({ icon }: { icon: number }) {
+const Icon = ({ icon, enabled = false }: { icon: number, enabled: boolean }) => {
+  if (enabled) {
+    return (
+      <div className="bg-blue-500">
+        {read(icon)}
+      </div>
+    );
+  }
+
   return (
     <>{read(icon)}</>
   );
-}
+};
+
+export default Icon;
