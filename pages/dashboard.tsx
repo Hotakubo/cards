@@ -1,17 +1,17 @@
-import { useState } from 'react';
-import type { NextPage } from 'next';
-import Labels from '@/components/Labels';
-import Cards from '@/components/Cards';
+import { useState } from 'react'
+import type { NextPage } from 'next'
+import Labels from '@/components/Labels'
+import Cards from '@/components/Cards'
 
 const Dashboard: NextPage = () => {
-  const [enabledLabel, setEnabledLabel] = useState(0);
+  const [enabledLabel, setEnabledLabel] = useState(0)
 
   return (
     <div className="flex">
       <Labels enabledLabel={enabledLabel} onClick={label => setEnabledLabel(label)}></Labels>
       <Cards label={enabledLabel}></Cards>
-  </div>
-);
-};
+    </div>
+  )
+}
 
-export default Dashboard;
+export default Dashboard

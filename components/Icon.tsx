@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import {
   MdAccountBox,
   MdPhoto,
@@ -11,49 +11,49 @@ import {
   MdShoppingCart,
   MdStore,
   MdError
-} from "react-icons/md";
+} from "react-icons/md"
 
 const read = (icon: number) => {
-  const size = 30;
+  const size = 30
 
   switch (icon) {
     case 20:
-      return <MdOutlineBuild size={size}></MdOutlineBuild>;
+      return <MdOutlineBuild size={size}></MdOutlineBuild>
 
     case 23:
-      return <MdAccountBox size={size}></MdAccountBox>;
+      return <MdAccountBox size={size}></MdAccountBox>
 
     case 26:
-      return <MdCamera size={size}></MdCamera>;
+      return <MdCamera size={size}></MdCamera>
 
     case 27:
-      return <MdStore size={size}></MdStore>;
+      return <MdStore size={size}></MdStore>
 
     case 39:
-      return <MdOutlineLanguage size={size}></MdOutlineLanguage>;
+      return <MdOutlineLanguage size={size}></MdOutlineLanguage>
 
     case 44:
-      return <MdOutlineBookmark size={size}></MdOutlineBookmark>;
+      return <MdOutlineBookmark size={size}></MdOutlineBookmark>
 
     case 47:
-      return <MdPerson size={size}></MdPerson>;
+      return <MdPerson size={size}></MdPerson>
 
     case 64:
-      return <MdError size={size}></MdError>;
+      return <MdError size={size}></MdError>
 
     case 74:
-      return <MdShoppingCart size={size}></MdShoppingCart>;
+      return <MdShoppingCart size={size}></MdShoppingCart>
 
     case 81:
-      return <MdOutlineMenuBook size={size}></MdOutlineMenuBook>;
+      return <MdOutlineMenuBook size={size}></MdOutlineMenuBook>
 
     case 88:
-      return <MdPhoto size={size}></MdPhoto>;
+      return <MdPhoto size={size}></MdPhoto>
 
     default:
-      return <div>{icon}</div>;
+      return <div>{icon}</div>
   }
-};
+}
 
 const Icon = ({ icon, enabled = false }: { icon: number, enabled: boolean }) => {
   if (enabled) {
@@ -61,12 +61,12 @@ const Icon = ({ icon, enabled = false }: { icon: number, enabled: boolean }) => 
       <div className="bg-blue-500">
         {read(icon)}
       </div>
-    );
+    )
   }
 
   return (
     <>{read(icon)}</>
-  );
-};
+  )
+}
 
-export default Icon;
+export default Icon

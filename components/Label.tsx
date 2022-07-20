@@ -1,5 +1,5 @@
-import { useRef } from 'react';
-import Icon from '@/components/Icon';
+import { useRef } from 'react'
+import Icon from '@/components/Icon'
 
 type Type = {
   index: number;
@@ -28,7 +28,7 @@ const Label = ({ index, label, icon, enabled = false, onClick, update }: Type) =
     >
       <Icon icon={icon} enabled={enabled}></Icon>
     </div>
-  );
-};
+  )
+}
 
-export default Label;
+export default Label
