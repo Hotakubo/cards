@@ -7,7 +7,7 @@ const routes = [
   {
     method: 'GET',
     url: '/api/labels',
-    handler: async (req: NextApiRequest, res: NextApiResponse<TypeLabel[]>) => {
+    handler: async (_req: NextApiRequest, res: NextApiResponse<TypeLabel[]>) => {
       res.status(200).json(await database.labels.readLabels())
     }
   }
